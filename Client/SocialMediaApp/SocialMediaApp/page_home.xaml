@@ -3,9 +3,6 @@
              x:Class="SocialMediaApp.page_home">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="CollectionView Loading Sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
         <CollectionView x:Name="myCollectionView">
 
         </CollectionView>
