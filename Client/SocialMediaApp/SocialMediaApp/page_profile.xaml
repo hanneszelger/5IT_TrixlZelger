@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialMediaApp.page_profile"
+             Title="Profile">
+
+    <ScrollView>
+    <Grid Margin="20,10,20,0" ColumnSpacing="10" RowSpacing="10" x:Name="grid_maingrid">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <ImageButton Source="bild3.jpg" x:Name="btn_profilepicture" Clicked="btn_profilepicture_Clicked">
+            <ImageButton.Clip>
+                <EllipseGeometry RadiusX="50"
+                             RadiusY="50"
+                             Center="50,50" />
+            </ImageButton.Clip>
+        </ImageButton>
+
+        <ImageButton
+                Grid.Row="1"
+                Grid.Column="0"
+                Source="profile.png"
+                x:Name="btn_mypics"
+                Clicked="btn_mypics_Clicked"
+                />
+
+        <ImageButton
+                Grid.Row="1"
+                Grid.Column="1"
+                Source="messages.png"
+                x:Name="btn_comments"
+                Clicked="btn_comments_Clicked"/>
+
+        <ImageButton
+                Grid.Row="1"
+                Grid.Column="2"
+                Source="messages.png"
+                x:Name="btn_likedpics"
+                Clicked="btn_likedpics_Clicked"/>
+
+
+        <ImageButton
+                Grid.Row="2"
+            
+                Grid.Column="0"
+                Source="plus.png"
+                x:Name="btn_addpics"
+                Clicked="btn_addpics_Clicked"/>
+
+        <Editor
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                MaximumHeightRequest="100"
+                MaxLength="100"
+                Placeholder="About me..."
+            
+                />
+
+
+
+
+
+    </Grid>
+    </ScrollView>
+</ContentPage>
