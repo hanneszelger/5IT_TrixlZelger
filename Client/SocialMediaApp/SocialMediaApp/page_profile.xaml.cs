@@ -12,7 +12,7 @@ public partial class page_profile : ContentPage
     List<ImageButton> imageButtons = new List<ImageButton>();
     List<ImageButton> likedImages = new List<ImageButton>();
     List<Label> labels = new List<Label>();
-    List<string> comments = new List<string>(){"gut", "schön", "Toll"};
+    List<string> comments = new List<string>(){"gut", "schÃ¶n", "Toll"};
     
 
     public page_profile()
@@ -23,6 +23,7 @@ public partial class page_profile : ContentPage
 
 	private void btn_mypics_Clicked(object sender, EventArgs e)
 	{
+	//if tab is switched to user pics show them and hide the comments
         foreach (ImageButton ib in imageButtons)
         {
             ib.IsVisible = true;
@@ -38,6 +39,7 @@ public partial class page_profile : ContentPage
 
     private async void btn_profilepicture_Clicked(object sender, EventArgs e)
 	{
+	//if user clicks on his profilpicture user will get to choose a picture with the PickAndShow method
         var res = await PickAndShow(PickOptions.Default);
         btn_profilepicture.Source = res.FullPath;
         
@@ -45,6 +47,7 @@ public partial class page_profile : ContentPage
 
     private void btn_comments_Clicked(object sender, EventArgs e)
 	{
+	//adds comments
         int commentrow = 2;
         btn_addpics.IsVisible=false;
 
@@ -52,7 +55,7 @@ public partial class page_profile : ContentPage
         {
             ib.IsVisible = false;
         }
-        //grid_maingrid.RowDefinitions.
+
         foreach(string comment in comments)
         {
             Label c = new Label
@@ -94,6 +97,7 @@ public partial class page_profile : ContentPage
 
         foreach(ImageButton li in likedImages.ToList())
         {
+	    //Images get added to a list the grid defines one more row if there are already 3 in one row
             grid_maingrid.Add(li);
             likedImages.Add(li);
             grid_maingrid.SetColumn(li, likedCol);
@@ -115,6 +119,7 @@ public partial class page_profile : ContentPage
 
     private async void btn_addpics_Clicked(object sender, EventArgs e)
     {
+        //Images get added to a list the grid defines one more row if there are already 3 in one row
         var res = await PickAndShow(PickOptions.Default);
         ImageButton imageButton = new ImageButton
         {
@@ -141,6 +146,7 @@ public partial class page_profile : ContentPage
 
     public async Task<FileResult> PickAndShow(PickOptions options)
     {
+    //method to pick pictures
         try
         {
             var result = await FilePicker.Default.PickAsync(options);
@@ -149,11 +155,12 @@ public partial class page_profile : ContentPage
                 if (result.FileName.EndsWith("jpg", StringComparison.OrdinalIgnoreCase) ||
                     result.FileName.EndsWith("png", StringComparison.OrdinalIgnoreCase))
                 {
+		//uses the stream to get the image if it is an image
                     using var stream = await result.OpenReadAsync();
                     var image = ImageSource.FromStream(() => stream);
                 }
             }
-
+            //returns all info of the pic
             return result;
         }
         catch (Exception ex)
@@ -166,6 +173,7 @@ public partial class page_profile : ContentPage
 
     public void hideunhide(bool change)
     {
+    //method to hide controls
         btn_addpics.IsVisible = change;
         foreach (ImageButton ib in imageButtons)
         {
