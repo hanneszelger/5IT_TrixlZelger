@@ -4,33 +4,92 @@
              x:Class="SocialMediaApp.page_inchats"
              Title="Messages">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
+   <VerticalStackLayout Padding="5" Spacing="10">
+        <Grid ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+            <Border 
+                    
+                    StrokeShape="RoundRectangle 90,90,90,90"
+                    HorizontalOptions="Center"
+                    
+                    StrokeThickness="1"
+                    Margin="0,0,0,0">
 
-        <Image Source="heart.png">
-        </Image>
+                <Image
+                    Source="bild3.jpg"
+                    x:Name="img_profilepicture"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Aspect="Fill"/>
+            </Border>
 
-        <Label
-            Grid.Row="0"
-            x:Name="lbl_name"
-            Grid.Column="1"
-            BackgroundColor="Green"/>
+            <Label
+                Text="Placeholder"
+                Grid.Column="1"
+                x:Name="lbl_name"
+                VerticalOptions="Center"/>
 
-        <Label
-            Grid.Row="1"
-            Grid.ColumnSpan="3"
-            BackgroundColor="Green"/>
+            <Button
+                Text="°°°"
+                Margin="0,4,0,0"
+                Grid.Column="3"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                BorderColor="Transparent"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
 
-    </Grid>
+        </Grid>
+
+        <Line 
+            Stroke="Gray"
+            X2="1000"/>
+
+        <CollectionView HeightRequest="380">
+            
+        </CollectionView>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Entry
+                Grid.ColumnSpan="2"/>
+
+            <Label
+                Text="▲"
+                Grid.Column="3"
+                FontSize="25"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+
+            <Button
+                Grid.Column="3"
+                BackgroundColor="Transparent"
+                x:Name="btn_send"
+                BorderColor="Transparent"/>
+
+        </Grid>
+
+
+    </VerticalStackLayout>
+
+</ContentPage>
 
 </ContentPage>
