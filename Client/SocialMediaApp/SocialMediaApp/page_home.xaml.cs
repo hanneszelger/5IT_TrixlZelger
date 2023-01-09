@@ -11,6 +11,7 @@ namespace SocialMediaApp
 
         public page_home()
         {
+        //start of work on infinite scroll
             InitializeComponent();
 
             foreach (var s in GetItems(50))
